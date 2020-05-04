@@ -1,1 +1,1 @@
-export const TEST_API = 'TEST_API';
+export const SEARCH_WEATHER = 'SEARCH_WEATHER';

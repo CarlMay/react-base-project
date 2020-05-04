@@ -1,5 +1,5 @@
 import {
-    TEST_API
+    SEARCH_WEATHER
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case TEST_API: {
+        case SEARCH_WEATHER: {
             const data = action.payload.results.artistmatches.artist;
             return {...state, artists: data};
         }
