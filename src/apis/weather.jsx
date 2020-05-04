@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://musicbrainz.org/ws/2/',
+    baseURL: 'https://community-open-weather-map.p.rapidapi.com/weather',
 });

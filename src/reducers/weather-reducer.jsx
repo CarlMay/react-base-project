@@ -3,17 +3,14 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    artists: [],
-    releases: [],
-    shortlist: [],
-    favoritesArtists: [],
+    weather: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SEARCH_WEATHER: {
-            const data = action.payload.results.artistmatches.artist;
-            return {...state, artists: data};
+            const data = action.payload;
+            return {...state, weather: data};
         }
 
         default:
