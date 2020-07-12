@@ -1,16 +1,19 @@
 import {
-    SEARCH_WEATHER
+    GET_PRODUCT
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    weatherData: [],
+    productData: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
+    // console.log('---reducer state', state);
+    // console.log('---reducer action.payload', action.payload);
+
     switch (action.type) {
-        case SEARCH_WEATHER: {
+        case GET_PRODUCT: {
             const data = action.payload;
-            return {...state, weatherData: data};
+            return {...state, productData: data};
         }
 
         default:

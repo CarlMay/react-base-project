@@ -1,29 +1,47 @@
+import b2wize from '../apis/b2wize';
 import weather from '../apis/weather';
 
 import {
-    SEARCH_WEATHER
+    GET_PRODUCT, SEARCH_WEATHER
 } from './types';
 
 export const searchWeather = (searchText) => async (dispatch) => {
 
     console.log('---cityName', searchText);
 
-    const options = {
-        headers: {
-            'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-            'x-rapidapi-key': '42de42f217msha532c4a0d2de233p115e07jsn94d3837a8a31',
-        }
-    };
+    const key = 'b619015b36c4f505b5e8ae9c2cf8e46d';
+    const {searchText:city} = searchText;
 
-    // const response = await weather.get(`?q=${searchText}&id=2172797`, options);
-    const response = await weather.get(`?callback=test&id=2172797&units=%2522metric%2522%20or%20%2522imperial%2522&mode=xml%252C%20html&q=London%252Cuk`, options);
+    const response = await weather.get(`?q=${city}&appid=${key}`);
 
-    console.log('---response', response);
+    // console.log('---response', response);
     const data = response.data;
 
 
     dispatch({
         type: SEARCH_WEATHER,
+        payload: data,
+    });
+};
+
+
+export const getProduct = () => async (dispatch) => {
+
+    console.log('---getProduct');
+
+    // const key = 'b619015b36c4f505b5e8ae9c2cf8e46d';
+    // const {searchText:city} = searchText;
+    //
+    const response = await b2wize.get('parts/list');
+    //
+    console.log('---response', response);
+    const data = response.data;
+    // const data = "responseDataTxt";
+
+
+
+    dispatch({
+        type: GET_PRODUCT,
         payload: data,
     });
 };

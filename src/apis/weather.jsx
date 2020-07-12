@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://community-open-weather-map.p.rapidapi.com/weather',
+    baseURL: 'https://api.openweathermap.org/data/2.5/weather',
 });

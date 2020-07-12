@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import {
-    TestContent
+    TestContent, ProductListContent
 } from "./content";
 
 import Header from "./header";
@@ -13,6 +13,7 @@ const App = () => {
                 <Header />
                 <Route path={'/'} exact component={TestContent} />
                 <Route path={'/test'} exact component={TestContent} />
+                <Route path={'/list'} exact component={ProductListContent} />
             </BrowserRouter>
         </div>
     );

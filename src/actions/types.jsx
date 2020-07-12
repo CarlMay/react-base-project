@@ -1,1 +1,2 @@
 export const SEARCH_WEATHER = 'SEARCH_WEATHER';
+export const GET_PRODUCT = 'GET_PRODUCT';
