@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import ContentContainer from "../ui/content-container";
-import {Icon, Label, Menu, Table} from 'semantic-ui-react'
-
+// import { ResponsiveLine } from '@nivo/line'
+// import {Icon, Label, Menu, Table} from 'semantic-ui-react'
 // import SearchBar from '../shared/searchBar';
-import _ from 'lodash';
+// import _ from 'lodash';
 // import {multiply, round} from 'lodash';
 import {connect} from "react-redux";
 import {getProduct} from "../../actions";
@@ -48,31 +48,10 @@ class ProductListContent extends Component {
         const {productData} = this.props;
         const partsList = productData['part_list'];
         const hasProductData = !!(partsList && partsList.length > 0);
-        // const {productDataS} = this.state;
-        // const hasFavorites = !!(favoritesArtists && favoritesArtists.length > 0);
-
-        // console.log('---productData', productData);
-        // console.log('---productData.length', productData.length);
-        console.log('---partsList', partsList);
-        console.log('---hasProductData', hasProductData);
-
-        // {productData && productData['part_list'].map((item) => {
-        //         // const {"part_id": partID, "part_description": description} = item;
-        //
-        //         console.log('---item', item);
-        //         // console.log('---partID', partID);
-        //         // console.log('---description', description);
-        //
-        //         return(item);
-        //
-        //         // return (
-        //         //     <Table.Row>
-        //         //         <Table.Cell>{partID}</Table.Cell>
-        //         //         <Table.Cell>{description}</Table.Cell>
-        //         //     </Table.Row>
-        //         // );
-        //     }
-        // )}
+        // const productDataItem = partsList.map((part) => {
+        //     return <ProductItem key={part.part_id} part={part}/>;
+        // });
+        // console.log('---hasProductData', hasProductData);
 
         const listStyle = {
             backgroundColor: '#f9f9f9',
@@ -83,6 +62,16 @@ class ProductListContent extends Component {
             marginTop: 0,
             marginBottom: 0,
         };
+
+        const loaderStyle = {
+            marginBottom: '1rem',
+        };
+
+        if (!partsList || partsList.length === 0 || productData.length === 0) {
+            return (
+                <div className="ui centered active inline loader" style={loaderStyle}></div>
+            )
+        }
 
 
         return (
@@ -99,15 +88,12 @@ class ProductListContent extends Component {
                         </div>
 
                         {hasProductData && partsList.map((part) => {
-                            return (
-                                <ProductItem key={part.part_id} part={part}/>
-                            );
+                            return <ProductItem key={part.part_id} part={part}/>;
                         })
                         }
 
                     </div>
                 </div>
-
 
             </ContentContainer>
         );
@@ -117,10 +103,7 @@ class ProductListContent extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log('---state', state);
-    // ArtistReleases: state.mindz.ArtistReleases,
-    // favoriteReleases: state.mindz.favoriteReleases,
-
+    // console.log('---state', state);
     return {
         productData: state.product.productData,
     };
