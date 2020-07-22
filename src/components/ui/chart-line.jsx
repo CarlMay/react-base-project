@@ -6,7 +6,6 @@ class ResponsiveLineChart extends React.Component {
     render() {
 
         const {data, monthDate} = this.props;
-
         // console.log('--=ResponsiveLineChart::monthDate', monthDate);
 
         return (
@@ -24,7 +23,6 @@ class ResponsiveLineChart extends React.Component {
                     tickPadding: 5,
                     tickRotation: 0,
                     legend: `${monthDate}`,
-                    // legend: 'monthDate',
                     legendOffset: 36,
                     legendPosition: 'middle'
                 }}
@@ -45,6 +43,7 @@ class ResponsiveLineChart extends React.Component {
                 pointLabel="y"
                 pointLabelYOffset={-12}
                 useMesh={true}
+                enableSlices="x"
                 legends={[
                     {
                         anchor: 'bottom-right',
