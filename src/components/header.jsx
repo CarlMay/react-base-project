@@ -27,10 +27,6 @@ const Header = () => {
                     <Image src='/images/favs.png' size='mini' style={iconStyle}/>
                     <span>Test Link</span>
                 </Link>
-                <Link to={'/list'} className={'item'} style={linkStyle}>
-                    <Image src='/images/favs.png' size='mini' style={iconStyle}/>
-                    <span>List</span>
-                </Link>
             </div>
         </div>
     );
