@@ -12,9 +12,7 @@ class ProductItem extends React.Component {
     }
 
     handleAccordionOpen() {
-        // console.log('--=this.props.part.part_id', this.props.part.part_id);
         this.setState({isOpen: !this.state.isOpen});
-        // this.props.getProductDetail(this.props.part.part_id);
     };
 
 
@@ -23,10 +21,6 @@ class ProductItem extends React.Component {
         const {part} = this.props;
         const {"part_description":description, "part_id":id} = part;
         const {isOpen} = this.state;
-
-        // console.log('---part', part);
-        // console.log('---description', description, id);
-
         const accordionText = (isOpen) ? 'Hide' : 'Show';
 
         const listStyle = {
