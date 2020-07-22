@@ -23,6 +23,10 @@ const Header = () => {
     return (
         <div className={'ui secondary pointing menu'} style={navStyle}>
             <div className={'left menu'}>
+                <Link to={'/test'} className={'item'} style={linkStyle}>
+                    <Image src='/images/favs.png' size='mini' style={iconStyle}/>
+                    <span>Test Link</span>
+                </Link>
                 <Link to={'/list'} className={'item'} style={linkStyle}>
                     <Image src='/images/favs.png' size='mini' style={iconStyle}/>
                     <span>List</span>
