@@ -9,12 +9,11 @@ class ProductItem extends React.Component {
     constructor(props) {
         super(props);
         this.handleAccordionOpen = this.handleAccordionOpen.bind(this);
-        // this.handleRemoveFromFavorites = this.handleRemoveFromFavorites.bind(this);
     }
 
     handleAccordionOpen() {
         this.setState({isOpen: !this.state.isOpen});
-    }
+    };
 
 
     render() {
@@ -22,10 +21,6 @@ class ProductItem extends React.Component {
         const {part} = this.props;
         const {"part_description":description, "part_id":id} = part;
         const {isOpen} = this.state;
-
-        console.log('---part', part);
-        console.log('---description', description, id);
-
         const accordionText = (isOpen) ? 'Hide' : 'Show';
 
         const listStyle = {
@@ -58,11 +53,11 @@ class ProductItem extends React.Component {
                     <div className="three wide column" style={showReleaseBlockStyle}>
                         <span onClick={this.handleAccordionOpen}
                               style={showReleaseStyle}>
-                            {`${accordionText} Releases`}
+                            {`${accordionText} Sales Data`}
                         </span>
                     </div>
                 </div>
-                {isOpen && <ProductDetail partId={id} part={part} />}
+                {isOpen && <ProductDetail partId={id} part={part}  />}
             </div>
         );
     }
